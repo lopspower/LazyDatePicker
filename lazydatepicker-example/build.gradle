@@ -20,5 +20,4 @@ android {
 dependencies {
     implementation project(':lazydatepicker')
     implementation appCompat
-    //implementation 'com.jakewharton.threetenabp:threetenabp:1.0.5'
 }

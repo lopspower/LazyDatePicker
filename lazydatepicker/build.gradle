@@ -15,7 +15,3 @@ android {
         }
     }
 }
-
-dependencies {
-    //implementation 'com.jakewharton.threetenabp:threetenabp:1.0.5'
-}
