@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LazyDatePicker">
+        <attr name="ldp_text_color" format="color" />
+        <attr name="ldp_hint_color" format="color" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="lazy_date_picker_width_case">12dp</dimen>
+    <dimen name="lazy_date_picker_height_focus">2.5dp</dimen>
+    <dimen name="lazy_date_picker_width_margin">1dp</dimen>
+    <dimen name="lazy_date_picker_width_space">6dp</dimen>
+</resources>

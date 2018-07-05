@@ -1,0 +1,23 @@
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+
+ext {
+    // APP VERSION
+    androidVersionCode          = 1
+    androidVersionName          = "1.0.0"
+
+    // ANDROID VERSION
+    androidCompileSdkVersion    = 27
+    androidMinSdkVersion        = 16
+    androidTargetSdkVersion     = 27
+
+    // ANDROID LIB
+    supportLibVersion           = '27.1.1'
+    appCompat                   = "com.android.support:appcompat-v7:$supportLibVersion"
+
+}
