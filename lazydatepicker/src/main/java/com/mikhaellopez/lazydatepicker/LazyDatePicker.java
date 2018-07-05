@@ -183,7 +183,12 @@ public class LazyDatePicker extends RelativeLayout {
             addKeyboardVisibilityListener(this, new OnKeyboardVisibilityListener() {
                 @Override
                 public void onVisibilityChange(boolean isVisible) {
-                    keyboardVisible = isVisible;
+                    if (keyboardVisible != isVisible) {
+                        keyboardVisible = isVisible;
+                        if (!keyboardVisible && editLazyDatePickerReal.isFocused()) {
+                            editLazyDatePickerReal.clearFocus();
+                        }
+                    }
                 }
             });
 
@@ -286,9 +291,7 @@ public class LazyDatePicker extends RelativeLayout {
             }
             Date realDateToCheckTmp = stringToDate(dateToCheckTmp.toString(), dateFormat.getValue());
 
-            if (realDateToCheckTmp == null || realDateToCheckTmp.before(minDate)) {
-                return false;
-            }
+            if (realDateToCheckTmp == null || realDateToCheckTmp.before(minDate)) return false;
         }
 
         if (length > 3 && maxDate != null) {
@@ -297,7 +300,16 @@ public class LazyDatePicker extends RelativeLayout {
                 dateToCheckTmp.append("0");
             }
             Date realDateToCheckTmp = stringToDate(dateToCheckTmp.toString(), dateFormat.getValue());
-            return realDateToCheckTmp != null && !realDateToCheckTmp.after(maxDate);
+            if (realDateToCheckTmp == null || realDateToCheckTmp.after(maxDate)) return false;
+        }
+
+        if (length > 6) {
+            StringBuilder dateToCheckTmp = new StringBuilder(date + unicodeChar);
+            while (dateToCheckTmp.length() < LENGHT_DATE_COMPLETE) {
+                dateToCheckTmp.append("9");
+            }
+            Date realDateToCheckTmp = stringToDate(dateToCheckTmp.toString(), dateFormat.getValue());
+            return dateToString(realDateToCheckTmp, dateFormat.getValue()).equals(dateToCheckTmp.toString());
         }
 
         return true;
@@ -305,7 +317,59 @@ public class LazyDatePicker extends RelativeLayout {
 
     private void showDate(String value, boolean hasFocus) {
         manageViewFocus(hasFocus, value.length());
-        setDate(value);
+        switch (value.length()) {
+            case 0:
+                textLazyDate1.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY ? R.string.ldp_month : R.string.ldp_day));
+                textLazyDate1.setTextColor(hintColor);
+                break;
+            case 1:
+                textLazyDate1.setTextColor(textColor);
+                textLazyDate1.setText(getLetterAt(0, value));
+                textLazyDate2.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY ? R.string.ldp_month : R.string.ldp_day));
+                textLazyDate2.setTextColor(hintColor);
+                break;
+            case 2:
+                textLazyDate2.setTextColor(textColor);
+                textLazyDate2.setText(getLetterAt(1, value));
+                textLazyDate3.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY ? R.string.ldp_day : R.string.ldp_month));
+                textLazyDate3.setTextColor(hintColor);
+                break;
+            case 3:
+                textLazyDate3.setTextColor(textColor);
+                textLazyDate3.setText(getLetterAt(2, value));
+                textLazyDate4.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY ? R.string.ldp_day : R.string.ldp_month));
+                textLazyDate4.setTextColor(hintColor);
+                break;
+            case 4:
+                textLazyDate4.setTextColor(textColor);
+                textLazyDate4.setText(getLetterAt(3, value));
+                textLazyDate5.setText(getContext().getString(R.string.ldp_year));
+                textLazyDate5.setTextColor(hintColor);
+                break;
+            case 5:
+                textLazyDate5.setTextColor(textColor);
+                textLazyDate5.setText(getLetterAt(4, value));
+                textLazyDate6.setText(getContext().getString(R.string.ldp_year));
+                textLazyDate6.setTextColor(hintColor);
+
+                break;
+            case 6:
+                textLazyDate6.setTextColor(textColor);
+                textLazyDate6.setText(getLetterAt(5, value));
+                textLazyDate7.setText(getContext().getString(R.string.ldp_year));
+                textLazyDate7.setTextColor(hintColor);
+                break;
+            case 7:
+                textLazyDate7.setTextColor(textColor);
+                textLazyDate7.setText(getLetterAt(6, value));
+                textLazyDate8.setText(getContext().getString(R.string.ldp_year));
+                textLazyDate8.setTextColor(hintColor);
+                break;
+            case 8:
+                textLazyDate8.setTextColor(textColor);
+                textLazyDate8.setText(getLetterAt(7, value));
+                break;
+        }
     }
 
     private void manageViewFocus(boolean hasFocus, int valueLength) {
@@ -382,62 +446,6 @@ public class LazyDatePicker extends RelativeLayout {
         }
     }
 
-    private void setDate(String value) {
-        switch (value.length()) {
-            case 0:
-                textLazyDate1.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY ? R.string.ldp_month : R.string.ldp_day));
-                textLazyDate1.setTextColor(hintColor);
-                break;
-            case 1:
-                textLazyDate1.setTextColor(textColor);
-                textLazyDate1.setText(getLetterAt(0, value));
-                textLazyDate2.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY ? R.string.ldp_month : R.string.ldp_day));
-                textLazyDate2.setTextColor(hintColor);
-                break;
-            case 2:
-                textLazyDate2.setTextColor(textColor);
-                textLazyDate2.setText(getLetterAt(1, value));
-                textLazyDate3.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY ? R.string.ldp_day : R.string.ldp_month));
-                textLazyDate3.setTextColor(hintColor);
-                break;
-            case 3:
-                textLazyDate3.setTextColor(textColor);
-                textLazyDate3.setText(getLetterAt(2, value));
-                textLazyDate4.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY ? R.string.ldp_day : R.string.ldp_month));
-                textLazyDate4.setTextColor(hintColor);
-                break;
-            case 4:
-                textLazyDate4.setTextColor(textColor);
-                textLazyDate4.setText(getLetterAt(3, value));
-                textLazyDate5.setText(getContext().getString(R.string.ldp_year));
-                textLazyDate5.setTextColor(hintColor);
-                break;
-            case 5:
-                textLazyDate5.setTextColor(textColor);
-                textLazyDate5.setText(getLetterAt(4, value));
-                textLazyDate6.setText(getContext().getString(R.string.ldp_year));
-                textLazyDate6.setTextColor(hintColor);
-
-                break;
-            case 6:
-                textLazyDate6.setTextColor(textColor);
-                textLazyDate6.setText(getLetterAt(5, value));
-                textLazyDate7.setText(getContext().getString(R.string.ldp_year));
-                textLazyDate7.setTextColor(hintColor);
-                break;
-            case 7:
-                textLazyDate7.setTextColor(textColor);
-                textLazyDate7.setText(getLetterAt(6, value));
-                textLazyDate8.setText(getContext().getString(R.string.ldp_year));
-                textLazyDate8.setTextColor(hintColor);
-                break;
-            case 8:
-                textLazyDate8.setTextColor(textColor);
-                textLazyDate8.setText(getLetterAt(7, value));
-                break;
-        }
-    }
-
     //region PUBLIC METHOD
     public Date getDate() {
         if (date.length() == LENGHT_DATE_COMPLETE) {
@@ -490,10 +498,17 @@ public class LazyDatePicker extends RelativeLayout {
 
     public void setMinDate(Date minDate) {
         this.minDate = minDate;
+        clear();
     }
 
     public void setMaxDate(Date maxDate) {
         this.maxDate = maxDate;
+        clear();
+    }
+
+    public void setDateFormat(DateFormat dateFormat) {
+        this.dateFormat = dateFormat;
+        clear();
     }
 
     public void clear() {
