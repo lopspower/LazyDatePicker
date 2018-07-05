@@ -25,10 +25,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="For this sample, you need to select your date between this min &amp; max date with mm-dd-yyyy format:"
+            android:text="@string/select_date_between_min_max_date"
             android:textColor="@color/primary"
-            android:textSize="12sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="12sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"

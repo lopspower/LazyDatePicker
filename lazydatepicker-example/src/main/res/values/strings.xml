@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LazyDatePicker</string>
+    <string name="select_date_between_min_max_date"><![CDATA[For this sample, you need to select your date between this min & max date with mm-dd-yyyy format:]]></string>
 </resources>
