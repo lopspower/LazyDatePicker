@@ -3,5 +3,9 @@
     <declare-styleable name="LazyDatePicker">
         <attr name="ldp_text_color" format="color" />
         <attr name="ldp_hint_color" format="color" />
+        <attr name="ldp_date_format">
+            <flag name="mm-dd-yyyy" value="1" />
+            <flag name="dd-mm-yyyy" value="2" />
+        </attr>
     </declare-styleable>
 </resources>

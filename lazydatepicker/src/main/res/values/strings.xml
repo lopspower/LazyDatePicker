@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ldp_day">D</string>
+    <string name="ldp_month">M</string>
+    <string name="ldp_year">Y</string>
+</resources>

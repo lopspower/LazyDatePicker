@@ -14,15 +14,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         String minDate = "01/01/2016";
-        String maxDate = "01/01/2018";
+        String maxDate = "12/31/2018";
 
         ((TextView) findViewById(R.id.textViewMinDate)).setText(minDate);
         ((TextView) findViewById(R.id.textViewMaxDate)).setText(maxDate);
 
         LazyDatePicker lazyDatePicker = findViewById(R.id.lazyDatePicker);
 
-        lazyDatePicker.setMinDate(LazyDatePicker.stringToDate(minDate, "dd/MM/yyyy"));
-        lazyDatePicker.setMaxDate(LazyDatePicker.stringToDate(maxDate, "dd/MM/yyyy"));
+        lazyDatePicker.setMinDate(LazyDatePicker.stringToDate(minDate, "MM/dd/yyyy"));
+        lazyDatePicker.setMaxDate(LazyDatePicker.stringToDate(maxDate, "MM/dd/yyyy"));
     }
 
 }
