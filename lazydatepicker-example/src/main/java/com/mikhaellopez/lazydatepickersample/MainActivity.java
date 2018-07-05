@@ -11,27 +11,31 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String DATE_FORMAT = "MM-dd-yyyy";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String minDate = "01/01/2016";
-        String maxDate = "12/31/2018";
+        // Define min & max date for sample
+        Date minDate = LazyDatePicker.stringToDate("01-01-2016", DATE_FORMAT);
+        Date maxDate = LazyDatePicker.stringToDate("12-31-2018", DATE_FORMAT);
 
-        ((TextView) findViewById(R.id.textViewMinDate)).setText(minDate);
-        ((TextView) findViewById(R.id.textViewMaxDate)).setText(maxDate);
+        // Init View
+        ((TextView) findViewById(R.id.textViewMinDate)).setText(LazyDatePicker.dateToString(minDate, DATE_FORMAT));
+        ((TextView) findViewById(R.id.textViewMaxDate)).setText(LazyDatePicker.dateToString(maxDate, DATE_FORMAT));
 
+        // Init LazyDatePicker
         LazyDatePicker lazyDatePicker = findViewById(R.id.lazyDatePicker);
-
-        lazyDatePicker.setMinDate(LazyDatePicker.stringToDate(minDate, "MM/dd/yyyy"));
-        lazyDatePicker.setMaxDate(LazyDatePicker.stringToDate(maxDate, "MM/dd/yyyy"));
+        lazyDatePicker.setMinDate(minDate);
+        lazyDatePicker.setMaxDate(maxDate);
 
         lazyDatePicker.setOnDatePickListener(new LazyDatePicker.OnDatePickListener() {
             @Override
             public void onDatePick(Date dateSelected) {
                 Toast.makeText(MainActivity.this,
-                        "Selected date: " + LazyDatePicker.dateToString(dateSelected, "MM/dd/yyyy"),
+                        "Selected date: " + LazyDatePicker.dateToString(dateSelected, DATE_FORMAT),
                         Toast.LENGTH_SHORT).show();
             }
         });
