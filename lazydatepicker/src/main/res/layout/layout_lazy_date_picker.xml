@@ -9,6 +9,7 @@
         android:layout_width="1dp"
         android:layout_height="1dp"
         android:background="@null"
+        android:cursorVisible="false"
         android:digits="0123456789"
         android:inputType="number|none"
         android:textSize="0sp"
