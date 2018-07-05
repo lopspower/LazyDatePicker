@@ -19,5 +19,6 @@ android {
 
 dependencies {
     implementation project(':lazydatepicker')
+    //implementation "com.mikhaellopez:lazydatepicker:$androidVersionName"
     implementation appCompat
 }
