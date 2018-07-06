@@ -7,7 +7,7 @@ LazyDatePicker
 
 This is an Android project to offer an alternative to the native Android Date Picker.
 
-<img src="/preview/preview.gif" alt="sample" title="sample" width="300" height="516" align="right" vspace="50" />
+<img src="/preview/preview_2.gif" alt="sample" title="sample" width="257" height="379" align="right" vspace="50" />
 
 USAGE
 -----
