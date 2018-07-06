@@ -58,7 +58,7 @@ JAVA
 
 ```java
 LazyDatePicker lazyDatePicker = findViewById(R.id.lazyDatePicker);
-lazyDatePicker.setDateFormat(LazyDatePicker.DateFormat.DD_MM_YYYY);
+lazyDatePicker.setDateFormat(LazyDatePicker.DateFormat.MM_DD_YYYY);
 lazyDatePicker.setMinDate(minDate);
 lazyDatePicker.setMaxDate(maxDate);
 
