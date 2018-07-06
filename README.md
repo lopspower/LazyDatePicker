@@ -40,6 +40,19 @@ You must use the following properties in your XML to change your LazyDatePicker.
 * `app:ldp_hint_color`      (color)     -> default GRAY
 * `app:ldp_date_format`     (mm-dd-yyyy or dd-mm-yyyy) -> default mm-dd-yyyy
 
+KOTLIN
+-----
+
+```kotlin
+lazyDatePicker.setDateFormat(LazyDatePicker.DateFormat.MM_DD_YYYY)
+lazyDatePicker.setMinDate(minDate)
+lazyDatePicker.setMaxDate(maxDate)
+
+lazyDatePicker.setOnDatePickListener { dateSelected ->
+    //...
+}
+```
+
 JAVA
 -----
 
@@ -55,6 +68,32 @@ lazyDatePicker.setOnDatePickListener(new LazyDatePicker.OnDatePickListener() {
         //...
     }
 });
+```
+
+OVERRIDE
+-----
+
+You can override day, month & year if you want like this in your `strings.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="ldp_day" tools:override="true">D</string>
+    <string name="ldp_month" tools:override="true">M</string>
+    <string name="ldp_year" tools:override="true">Y</string>
+</resources>
+```
+
+You can also change the design of the picker by changing the dimensions like this in your `dimens.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="lazy_date_picker_width_case" tools:override="true">12dp</dimen>
+    <dimen name="lazy_date_picker_height_focus" tools:override="true">2.5dp</dimen>
+    <dimen name="lazy_date_picker_width_margin" tools:override="true">1dp</dimen>
+    <dimen name="lazy_date_picker_width_space" tools:override="true">6dp</dimen>
+</resources>
 ```
 
 LICENCE
