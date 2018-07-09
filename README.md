@@ -3,9 +3,12 @@
 LazyDatePicker
 =================
 
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-LazyDatePicker-lightgrey.svg?style=flat)](https://android-arsenal.com/details/1/7022)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
+<br>
+[![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23317-orange.svg)](https://androidweekly.net/issues/issue-317)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-LazyDatePicker-lightgrey.svg?style=flat)](https://android-arsenal.com/details/1/7022)
 [![Twitter](https://img.shields.io/badge/Twitter-@LopezMikhael-blue.svg?style=flat)](http://twitter.com/lopezmikhael)
 
 This is an Android project to offer an alternative to the native Android Date Picker.
