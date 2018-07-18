@@ -1,7 +1,7 @@
-<img src="/preview/preview_2.gif" alt="sample" title="sample" width="257" height="379" align="right" vspace="50" />
-
 LazyDatePicker
 =================
+
+<img src="/preview/preview_2.gif" alt="sample" title="sample" width="257" height="379" align="right" vspace="50" />
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
@@ -12,6 +12,10 @@ LazyDatePicker
 [![Twitter](https://img.shields.io/badge/Twitter-@LopezMikhael-blue.svg?style=flat)](http://twitter.com/lopezmikhael)
 
 This is an Android project to offer an alternative to the native Android Date Picker.
+
+<a href="https://play.google.com/store/apps/details?id=com.mikhaellopez.lopspower">
+  <img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+</a>
 
 USAGE
 -----
