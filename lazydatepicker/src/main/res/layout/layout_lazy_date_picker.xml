@@ -13,6 +13,7 @@
         android:digits="0123456789"
         android:inputType="number|none"
         android:textSize="0sp"
+        android:imeOptions="actionDone"
         tools:ignore="LabelFor,TextFields" />
 
     <LinearLayout
