@@ -22,7 +22,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="@dimen/lazy_date_picker_width_case"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/lazy_date_picker_width_margin"
             android:layout_marginRight="@dimen/lazy_date_picker_width_margin"
@@ -34,7 +34,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ldp_month"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="@dimen/lazy_date_picker_font_size"
+                />
 
             <View
                 android:id="@+id/view_lazy_date_1"
@@ -45,7 +47,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="@dimen/lazy_date_picker_width_case"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/lazy_date_picker_width_margin"
             android:layout_marginStart="@dimen/lazy_date_picker_width_margin"
@@ -57,7 +59,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ldp_month"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="@dimen/lazy_date_picker_font_size"
+                />
 
             <View
                 android:id="@+id/view_lazy_date_2"
@@ -72,7 +76,7 @@
             android:layout_height="match_parent" />
 
         <LinearLayout
-            android:layout_width="@dimen/lazy_date_picker_width_case"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/lazy_date_picker_width_margin"
             android:layout_marginStart="@dimen/lazy_date_picker_width_margin"
@@ -84,7 +88,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ldp_day"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="@dimen/lazy_date_picker_font_size"
+                />
 
             <View
                 android:id="@+id/view_lazy_date_3"
@@ -95,7 +101,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="@dimen/lazy_date_picker_width_case"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/lazy_date_picker_width_margin"
             android:layout_marginStart="@dimen/lazy_date_picker_width_margin"
@@ -107,7 +113,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ldp_day"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="@dimen/lazy_date_picker_font_size"
+                />
 
             <View
                 android:id="@+id/view_lazy_date_4"
@@ -122,7 +130,7 @@
             android:layout_height="match_parent" />
 
         <LinearLayout
-            android:layout_width="@dimen/lazy_date_picker_width_case"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/lazy_date_picker_width_margin"
             android:layout_marginStart="@dimen/lazy_date_picker_width_margin"
@@ -134,7 +142,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ldp_year"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="@dimen/lazy_date_picker_font_size"
+                />
 
             <View
                 android:id="@+id/view_lazy_date_5"
@@ -145,7 +155,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="@dimen/lazy_date_picker_width_case"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/lazy_date_picker_width_margin"
             android:layout_marginStart="@dimen/lazy_date_picker_width_margin"
@@ -157,7 +167,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ldp_year"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="@dimen/lazy_date_picker_font_size"
+                />
 
             <View
                 android:id="@+id/view_lazy_date_6"
@@ -168,7 +180,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="@dimen/lazy_date_picker_width_case"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/lazy_date_picker_width_margin"
             android:layout_marginStart="@dimen/lazy_date_picker_width_margin"
@@ -180,7 +192,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ldp_year"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="@dimen/lazy_date_picker_font_size"
+                />
 
             <View
                 android:id="@+id/view_lazy_date_7"
@@ -191,7 +205,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="@dimen/lazy_date_picker_width_case"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/lazy_date_picker_width_margin"
             android:layout_marginStart="@dimen/lazy_date_picker_width_margin"
@@ -203,7 +217,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ldp_year"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="@dimen/lazy_date_picker_font_size"
+                />
 
             <View
                 android:id="@+id/view_lazy_date_8"
@@ -221,6 +237,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:visibility="gone"
+        android:textSize="@dimen/lazy_date_picker_font_size"
         tools:text="01 jav. 1900" />
 
     <View
