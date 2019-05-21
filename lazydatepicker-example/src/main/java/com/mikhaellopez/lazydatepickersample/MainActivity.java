@@ -2,6 +2,7 @@ package com.mikhaellopez.lazydatepickersample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,
                         "Selected date: " + LazyDatePicker.dateToString(dateSelected, DATE_FORMAT),
                         Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        lazyDatePicker.setOnDateSelectedListener(new LazyDatePicker.OnDateSelectedListener() {
+            @Override
+            public void onDateSelected(Boolean dateSelected) {
+                Log.d(MainActivity.class.getSimpleName(), "onDateSelected: " + dateSelected);
             }
         });
     }

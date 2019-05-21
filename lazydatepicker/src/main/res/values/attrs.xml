@@ -7,5 +7,6 @@
             <flag name="mm-dd-yyyy" value="1" />
             <flag name="dd-mm-yyyy" value="2" />
         </attr>
+        <attr name="ldp_show_full_date" format="boolean" />
     </declare-styleable>
 </resources>

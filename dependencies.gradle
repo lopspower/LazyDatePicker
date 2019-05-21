@@ -8,8 +8,8 @@ allprojects {
 
 ext {
     // APP VERSION
-    androidVersionCode          = 1
-    androidVersionName          = "1.0.0"
+    androidVersionCode          = 2
+    androidVersionName          = "1.0.1"
 
     // ANDROID VERSION
     androidCompileSdkVersion    = 27
@@ -19,5 +19,8 @@ ext {
     // ANDROID LIB
     supportLibVersion           = '27.1.1'
     appCompat                   = "com.android.support:appcompat-v7:$supportLibVersion"
+
+    // HELPER
+    threetenabp                 = 'com.jakewharton.threetenabp:threetenabp:1.2.0'
 
 }

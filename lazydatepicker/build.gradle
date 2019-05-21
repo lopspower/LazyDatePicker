@@ -18,6 +18,10 @@ android {
     }
 }
 
+dependencies {
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.0'
+}
+
 //region Publish to jCenter
 def libGroupId = 'com.mikhaellopez'
 def libArtifactId = 'lazydatepicker'
