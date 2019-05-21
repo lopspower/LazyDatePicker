@@ -23,7 +23,7 @@ USAGE
 To make a lazy date picker add LazyDatePicker in your layout XML and add LazyDatePicker library in your project or you can also grab it via Gradle:
 
 ```groovy
-implementation 'com.mikhaellopez:lazydatepicker:1.0.0'
+implementation 'com.mikhaellopez:lazydatepicker:1.0.1'
 ```
 
 XML
@@ -47,6 +47,7 @@ You must use the following properties in your XML to change your LazyDatePicker.
 * `app:ldp_text_color`      (color)     -> default BLACK
 * `app:ldp_hint_color`      (color)     -> default GRAY
 * `app:ldp_date_format`     (mm-dd-yyyy or dd-mm-yyyy) -> default mm-dd-yyyy
+* `app:ldp_show_full_date`  (boolean)   -> default true
 
 KOTLIN
 -----
@@ -56,7 +57,13 @@ lazyDatePicker.setDateFormat(LazyDatePicker.DateFormat.MM_DD_YYYY)
 lazyDatePicker.setMinDate(minDate)
 lazyDatePicker.setMaxDate(maxDate)
 
+// The date when is selected
 lazyDatePicker.setOnDatePickListener { dateSelected ->
+    //...
+}
+
+// True or false when date is selected
+lazyDatePicker.setOnDateSelectedListener { dateSelected ->
     //...
 }
 ```
@@ -76,6 +83,48 @@ lazyDatePicker.setOnDatePickListener(new LazyDatePicker.OnDatePickListener() {
         //...
     }
 });
+
+lazyDatePicker.setOnDateSelectedListener(new LazyDatePicker.OnDateSelectedListener() {
+    @Override
+    public void onDateSelected(Boolean dateSelected) {
+        //...
+    }
+});
+```
+
+[LOCAL DATE](https://github.com/JakeWharton/ThreeTenABP)
+-----
+
+You can used `LazyLocalDatePicker` instead of `LazyDatePicker` to have all method with `LocalDate` instead of `Date`.
+
+##### XML:
+
+```xml
+<com.mikhaellopez.lazydatepicker.LazyLocalDatePicker
+        android:id="@+id/lazyDatePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:ldp_text_color="@color/primary"
+        app:ldp_hint_color="@color/accent"
+        app:ldp_date_format="mm-dd-yyyy" />
+```
+
+##### KOTLIN:
+
+```kotlin
+lazyLocalDatePicker.setDateFormat(LazyDatePicker.DateFormat.MM_DD_YYYY)
+lazyLocalDatePicker.setMinLocalDate(minDate)
+lazyLocalDatePicker.setMaxLocalDate(maxDate)
+
+// The localdate when is selected
+lazyLocalDatePicker.setOnLocalDatePickListener { localDateSelected ->
+    //...
+}
+
+// True or false when date is selected
+lazyLocalDatePicker.setOnLocalDateSelectedListener { dateSelected ->
+    //...
+}
 ```
 
 OVERRIDE
@@ -103,6 +152,8 @@ You can also change the design of the picker by changing the dimensions like thi
     <dimen name="lazy_date_picker_width_space" tools:override="true">6dp</dimen>
 </resources>
 ```
+
+And to finish you can also completely redefine the layout by keeping the same name `layout_lazy_date_picker.xml` and keep all the ids. You can find the default one here: [**layout_lazy_date_picker.xml**](/lazydatepicker/src/main/res/layout/layout_lazy_date_picker.xml)
 
 LICENCE
 -----
