@@ -2,13 +2,12 @@ package com.mikhaellopez.lazydatepicker;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.format.DateTimeFormatter;
 
 /**
- * Copyright (C) 2018 Mikhael LOPEZ
+ * Copyright (C) 2019 Mikhael LOPEZ
  * Licensed under the Apache License Version 2.0
  */
 public class LazyLocalDatePicker extends LazyDatePicker {
@@ -102,13 +101,11 @@ public class LazyLocalDatePicker extends LazyDatePicker {
 
     public void setMinLocalDate(LocalDate minDate) {
         this.minDate = minDate;
-        Log.e("Mikhael", "minDate: " + dateToString(minDate, "dd MM yyyy"));
         clear();
     }
 
     public void setMaxLocalDate(LocalDate maxDate) {
         this.maxDate = maxDate;
-        Log.e("Mikhael", "maxDate: " + dateToString(maxDate, "dd MM yyyy"));
         clear();
     }
 

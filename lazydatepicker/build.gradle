@@ -19,7 +19,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.0'
+    implementation threetenabp
 }
 
 //region Publish to jCenter

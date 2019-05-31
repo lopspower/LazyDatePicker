@@ -8,17 +8,17 @@ allprojects {
 
 ext {
     // APP VERSION
-    androidVersionCode          = 2
-    androidVersionName          = "1.0.1"
+    androidVersionCode          = 3
+    androidVersionName          = "1.0.2"
 
     // ANDROID VERSION
-    androidCompileSdkVersion    = 27
+    androidCompileSdkVersion    = 28
     androidMinSdkVersion        = 16
-    androidTargetSdkVersion     = 27
+    androidTargetSdkVersion     = 28
 
     // ANDROID LIB
-    supportLibVersion           = '27.1.1'
-    appCompat                   = "com.android.support:appcompat-v7:$supportLibVersion"
+    androidAppCompatXVersion    = '1.0.2'
+    androidXAppCompat           = "androidx.appcompat:appcompat:$androidAppCompatXVersion"
 
     // HELPER
     threetenabp                 = 'com.jakewharton.threetenabp:threetenabp:1.2.0'

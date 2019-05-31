@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Copyright (C) 2018 Mikhael LOPEZ
+ * Copyright (C) 2019 Mikhael LOPEZ
  * Licensed under the Apache License Version 2.0
  */
 public class LazyDatePicker extends RelativeLayout {
@@ -485,6 +485,8 @@ public class LazyDatePicker extends RelativeLayout {
     }
 
     protected void fillDate() {
+        editLazyDatePickerReal.setText(date);
+
         textLazyDate1.setTextColor(textColor);
         textLazyDate1.setText(getLetterAt(0, date));
         textLazyDate2.setTextColor(textColor);
@@ -511,7 +513,8 @@ public class LazyDatePicker extends RelativeLayout {
         viewLazyDate7.setBackgroundColor(Color.TRANSPARENT);
         viewLazyDate8.setBackgroundColor(Color.TRANSPARENT);
 
-        showFullDateLayout(editLazyDatePickerReal.isFocused());
+        if (showFullDate)
+            showFullDateLayout(editLazyDatePickerReal.isFocused());
     }
     //endregion
 
@@ -594,11 +597,12 @@ public class LazyDatePicker extends RelativeLayout {
         void onVisibilityChange(boolean isVisible);
     }
 
-    private void showKeyboard(View view, Context context) {
-        view.requestFocus();
+    private void showKeyboard(EditText editText, Context context) {
+        editText.requestFocus();
+        editText.setSelection(editText.length());
         InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         if (inputMethodManager != null)
-            inputMethodManager.showSoftInput(view, InputMethodManager.SHOW_FORCED);
+            inputMethodManager.showSoftInput(editText, InputMethodManager.SHOW_FORCED);
     }
     //endregion
 

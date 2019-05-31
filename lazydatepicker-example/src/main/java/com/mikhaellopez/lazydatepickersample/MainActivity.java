@@ -1,10 +1,11 @@
 package com.mikhaellopez.lazydatepickersample;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.mikhaellopez.lazydatepicker.LazyDatePicker;
 
