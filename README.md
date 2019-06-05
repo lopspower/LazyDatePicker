@@ -23,7 +23,7 @@ USAGE
 To make a lazy date picker add LazyDatePicker in your layout XML and add LazyDatePicker library in your project or you can also grab it via Gradle:
 
 ```groovy
-implementation 'com.mikhaellopez:lazydatepicker:1.0.2'
+implementation 'com.mikhaellopez:lazydatepicker:1.0.3'
 ```
 
 XML
