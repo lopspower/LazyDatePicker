@@ -134,7 +134,7 @@ public class LazyDatePicker extends RelativeLayout {
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     if (!shakeAnimationDoing) {
-                        if (before > 0) {
+                        if (before == 1) {
                             // Remove last char
                             if (date.length() > 0) {
                                 date = date.substring(0, date.length() - 1);
