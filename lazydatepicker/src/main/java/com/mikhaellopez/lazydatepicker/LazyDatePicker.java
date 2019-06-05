@@ -62,6 +62,7 @@ public class LazyDatePicker extends RelativeLayout {
     private boolean showFullDate = true;
     private OnDatePickListener onDatePickListener;
     private OnDateSelectedListener onDateSelectedListener;
+    private TextWatcher textWatcher;
 
     //region CONSTRUCTORS
     public LazyDatePicker(Context context) {
@@ -81,12 +82,14 @@ public class LazyDatePicker extends RelativeLayout {
         inflate(context, R.layout.layout_lazy_date_picker, this);
 
         // Load the styled attributes and set their properties
-        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.LazyDatePicker, defStyleAttr, 0);
+        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.LazyDatePicker,
+                defStyleAttr, 0);
         textColor = attributes.getColor(R.styleable.LazyDatePicker_ldp_text_color, Color.BLACK);
         hintColor = attributes.getColor(R.styleable.LazyDatePicker_ldp_hint_color, Color.GRAY);
         showFullDate = attributes.getBoolean(R.styleable.LazyDatePicker_ldp_show_full_date, true);
 
-        int dateFormatValue = attributes.getInteger(R.styleable.LazyDatePicker_ldp_date_format, DateFormat.MM_DD_YYYY.getAttrValue());
+        int dateFormatValue = attributes.getInteger(R.styleable.LazyDatePicker_ldp_date_format,
+                DateFormat.MM_DD_YYYY.getAttrValue());
         dateFormat = DateFormat.fromValue(dateFormatValue);
 
         attributes.recycle();
@@ -126,7 +129,7 @@ public class LazyDatePicker extends RelativeLayout {
                 });
             }
 
-            editLazyDatePickerReal.addTextChangedListener(new TextWatcher() {
+            textWatcher = new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 }
@@ -134,7 +137,7 @@ public class LazyDatePicker extends RelativeLayout {
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     if (!shakeAnimationDoing) {
-                        if (before == 1) {
+                        if (before > 0) {
                             // Remove last char
                             if (date.length() > 0) {
                                 date = date.substring(0, date.length() - 1);
@@ -157,7 +160,8 @@ public class LazyDatePicker extends RelativeLayout {
                 @Override
                 public void afterTextChanged(Editable s) {
                 }
-            });
+            };
+            editLazyDatePickerReal.addTextChangedListener(textWatcher);
         }
     }
 
@@ -320,25 +324,29 @@ public class LazyDatePicker extends RelativeLayout {
         manageViewFocus(hasFocus, value.length());
         switch (value.length()) {
             case 0:
-                textLazyDate1.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY ? R.string.ldp_month : R.string.ldp_day));
+                textLazyDate1.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY
+                        ? R.string.ldp_month : R.string.ldp_day));
                 textLazyDate1.setTextColor(hintColor);
                 break;
             case 1:
                 textLazyDate1.setTextColor(textColor);
                 textLazyDate1.setText(getLetterAt(0, value));
-                textLazyDate2.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY ? R.string.ldp_month : R.string.ldp_day));
+                textLazyDate2.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY
+                        ? R.string.ldp_month : R.string.ldp_day));
                 textLazyDate2.setTextColor(hintColor);
                 break;
             case 2:
                 textLazyDate2.setTextColor(textColor);
                 textLazyDate2.setText(getLetterAt(1, value));
-                textLazyDate3.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY ? R.string.ldp_day : R.string.ldp_month));
+                textLazyDate3.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY
+                        ? R.string.ldp_day : R.string.ldp_month));
                 textLazyDate3.setTextColor(hintColor);
                 break;
             case 3:
                 textLazyDate3.setTextColor(textColor);
                 textLazyDate3.setText(getLetterAt(2, value));
-                textLazyDate4.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY ? R.string.ldp_day : R.string.ldp_month));
+                textLazyDate4.setText(getContext().getString(dateFormat == DateFormat.MM_DD_YYYY
+                        ? R.string.ldp_day : R.string.ldp_month));
                 textLazyDate4.setTextColor(hintColor);
                 break;
             case 4:
@@ -485,7 +493,9 @@ public class LazyDatePicker extends RelativeLayout {
     }
 
     protected void fillDate() {
+        editLazyDatePickerReal.removeTextChangedListener(textWatcher);
         editLazyDatePickerReal.setText(date);
+        editLazyDatePickerReal.addTextChangedListener(textWatcher);
 
         textLazyDate1.setTextColor(textColor);
         textLazyDate1.setText(getLetterAt(0, date));
@@ -575,7 +585,8 @@ public class LazyDatePicker extends RelativeLayout {
     //endregion
 
     //region KEYBOARD
-    private void addKeyboardVisibilityListener(final View rootLayout, final OnKeyboardVisibilityListener onKeyboardVisibilityListener) {
+    private void addKeyboardVisibilityListener(final View rootLayout,
+                                               final OnKeyboardVisibilityListener onKeyboardVisibilityListener) {
         rootLayout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
@@ -587,7 +598,8 @@ public class LazyDatePicker extends RelativeLayout {
                 // if keypad is shown, the r.bottom is smaller than that before.
                 int keypadHeight = screenHeight - r.bottom;
 
-                boolean isVisible = keypadHeight > screenHeight * 0.15; // 0.15 ratio is perhaps enough to determine keypad height.
+                boolean isVisible = keypadHeight > screenHeight * 0.15; // 0.15 ratio is perhaps
+                // enough to determine keypad height.
                 onKeyboardVisibilityListener.onVisibilityChange(isVisible);
             }
         });
@@ -600,7 +612,8 @@ public class LazyDatePicker extends RelativeLayout {
     private void showKeyboard(EditText editText, Context context) {
         editText.requestFocus();
         editText.setSelection(editText.length());
-        InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         if (inputMethodManager != null)
             inputMethodManager.showSoftInput(editText, InputMethodManager.SHOW_FORCED);
     }
