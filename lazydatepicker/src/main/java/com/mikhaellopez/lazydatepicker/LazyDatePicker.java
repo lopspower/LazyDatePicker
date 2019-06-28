@@ -129,39 +129,7 @@ public class LazyDatePicker extends RelativeLayout {
                 });
             }
 
-            textWatcher = new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    if (!shakeAnimationDoing) {
-                        if (before > 0) {
-                            // Remove last char
-                            if (date.length() > 0) {
-                                date = date.substring(0, date.length() - 1);
-                            }
-                        } else if (date.length() < LENGTH_DATE_COMPLETE && s.length() > 0 && charIsValid(date, s.charAt(s.length() - 1))) {
-                            char unicodeChar = s.charAt(s.length() - 1);
-                            date += unicodeChar;
-                            if (date.length() == LENGTH_DATE_COMPLETE) {
-                                onDatePick();
-                            }
-                        } else {
-                            shakeView(layoutLazyDatePicker);
-                        }
-
-                        showDate(date, true);
-                        onDateSelected();
-                    }
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                }
-            };
-            editLazyDatePickerReal.addTextChangedListener(textWatcher);
+            initTextWatcher();
         }
     }
 
@@ -493,9 +461,9 @@ public class LazyDatePicker extends RelativeLayout {
     }
 
     protected void fillDate() {
-        editLazyDatePickerReal.removeTextChangedListener(textWatcher);
+        detachTextWatcher();
         editLazyDatePickerReal.setText(date);
-        editLazyDatePickerReal.addTextChangedListener(textWatcher);
+        initTextWatcher();
 
         textLazyDate1.setTextColor(textColor);
         textLazyDate1.setText(getLetterAt(0, date));
@@ -581,6 +549,51 @@ public class LazyDatePicker extends RelativeLayout {
 
     public void setOnDateSelectedListener(OnDateSelectedListener onDateSelectedListener) {
         this.onDateSelectedListener = onDateSelectedListener;
+    }
+    //endregion
+
+    //region TEXT WATCHER
+    private void detachTextWatcher() {
+        editLazyDatePickerReal.removeTextChangedListener(textWatcher);
+        textWatcher = null;
+    }
+
+    private void initTextWatcher() {
+        if (textWatcher == null) {
+            textWatcher = new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if (!shakeAnimationDoing) {
+                        if (before > 0) {
+                            // Remove last char
+                            if (date.length() > 0) {
+                                date = date.substring(0, date.length() - 1);
+                            }
+                        } else if (date.length() < LENGTH_DATE_COMPLETE && s.length() > 0 && charIsValid(date, s.charAt(s.length() - 1))) {
+                            char unicodeChar = s.charAt(s.length() - 1);
+                            date += unicodeChar;
+                            if (date.length() == LENGTH_DATE_COMPLETE) {
+                                onDatePick();
+                            }
+                        } else {
+                            shakeView(layoutLazyDatePicker);
+                        }
+
+                        showDate(date, true);
+                        onDateSelected();
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                }
+            };
+            editLazyDatePickerReal.addTextChangedListener(textWatcher);
+        }
     }
     //endregion
 
