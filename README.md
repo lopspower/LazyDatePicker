@@ -30,12 +30,12 @@ XML
 
 ```xml
 <com.mikhaellopez.lazydatepicker.LazyDatePicker
-        android:id="@+id/lazyDatePicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:ldp_text_color="@color/primary"
-        app:ldp_hint_color="@color/accent"
-        app:ldp_date_format="mm-dd-yyyy" />
+    android:id="@+id/lazyDatePicker"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:ldp_text_color="@color/primary"
+    app:ldp_hint_color="@color/accent"
+    app:ldp_date_format="mm-dd-yyyy" />
 ```
 
 You must use the following properties in your XML to change your LazyDatePicker.
