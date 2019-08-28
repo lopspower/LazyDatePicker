@@ -3,12 +3,11 @@ LazyDatePicker
 
 <img src="/preview/preview_2.gif" alt="sample" title="sample" width="257" height="379" align="right" vspace="50" />
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
+[![Download](https://api.bintray.com/packages/lopspower/maven/com.mikhaellopez:lazydatepicker/images/download.svg?version=1.0.5)](https://bintray.com/lopspower/maven/com.mikhaellopez:lazydatepicker/1.0.5/link)
 <br>
 [![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23317-orange.svg)](https://androidweekly.net/issues/issue-317)
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-LazyDatePicker-lightgrey.svg?style=flat)](https://android-arsenal.com/details/1/7022)
 [![Twitter](https://img.shields.io/badge/Twitter-@LopezMikhael-blue.svg?style=flat)](http://twitter.com/lopezmikhael)
 
 This is an Android project to offer an alternative to the native Android Date Picker.
@@ -41,13 +40,12 @@ XML
 
 You must use the following properties in your XML to change your LazyDatePicker.
 
-
-##### Properties:
-
-* `app:ldp_text_color`      (color)     -> default BLACK
-* `app:ldp_hint_color`      (color)     -> default GRAY
-* `app:ldp_date_format`     (mm-dd-yyyy or dd-mm-yyyy) -> default mm-dd-yyyy
-* `app:ldp_show_full_date`  (boolean)   -> default true
+| Properties              | Type                     | Default    |
+| ----------------------- | -------------------------| ---------- |
+| `app:ldp_text_color`    | color                    | BLACK      |
+| `app:ldp_hint_color`    | color                    | GRAY       |
+| `app:ldp_date_format`   | mm-dd-yyyy or dd-mm-yyyy | mm-dd-yyyy |
+| `app:ldp_show_full_date`| boolean                  | true       |
 
 KOTLIN
 -----
@@ -97,16 +95,16 @@ lazyDatePicker.setOnDateSelectedListener(new LazyDatePicker.OnDateSelectedListen
 
 You can used `LazyLocalDatePicker` instead of `LazyDatePicker` to have all method with `LocalDate` instead of `Date`.
 
-##### XML:
+### XML:
 
 ```xml
 <com.mikhaellopez.lazydatepicker.LazyLocalDatePicker
-        android:id="@+id/lazyDatePicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:ldp_text_color="@color/primary"
-        app:ldp_hint_color="@color/accent"
-        app:ldp_date_format="mm-dd-yyyy" />
+    android:id="@+id/lazyDatePicker"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:ldp_text_color="@color/primary"
+    app:ldp_hint_color="@color/accent"
+    app:ldp_date_format="mm-dd-yyyy" />
 ```
 
 ##### KOTLIN:
@@ -154,6 +152,13 @@ You can also change the design of the picker by changing the dimensions like thi
 ```
 
 And to finish you can also completely redefine the layout by keeping the same name `layout_lazy_date_picker.xml` and keep all the ids. You can find the default one here: [**layout_lazy_date_picker.xml**](/lazydatepicker/src/main/res/layout/layout_lazy_date_picker.xml)
+
+SUPPORT ❤️
+-----
+
+Find this library useful? Support it by joining [**stargazers**](https://github.com/lopspower/LazyDatePicker/stargazers) for this repository ⭐️
+<br/>
+And [**follow me**](https://github.com/lopspower?tab=followers) for my next creations 👍
 
 LICENCE
 -----
