@@ -107,7 +107,7 @@ You can used `LazyLocalDatePicker` instead of `LazyDatePicker` to have all metho
     app:ldp_date_format="mm-dd-yyyy" />
 ```
 
-##### KOTLIN:
+### KOTLIN:
 
 ```kotlin
 lazyLocalDatePicker.setDateFormat(LazyDatePicker.DateFormat.MM_DD_YYYY)
