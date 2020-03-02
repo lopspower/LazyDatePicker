@@ -12,15 +12,29 @@ ext {
     androidVersionName          = "1.0.5"
 
     // ANDROID VERSION
-    androidCompileSdkVersion    = 28
+    androidCompileSdkVersion    = 29
     androidMinSdkVersion        = 16
-    androidTargetSdkVersion     = 28
+    androidTargetSdkVersion     = 29
 
     // ANDROID LIB
-    androidAppCompatXVersion    = '1.0.2'
+    androidAppCompatXVersion    = '1.1.0'
     androidXAppCompat           = "androidx.appcompat:appcompat:$androidAppCompatXVersion"
 
     // HELPER
-    threetenabp                 = 'com.jakewharton.threetenabp:threetenabp:1.2.1'
+    threetenabp                 = 'com.jakewharton.threetenabp:threetenabp:1.2.2'
+
+    // DEPENDENCY CHECK STRATEGY
+    dependencyUpdatesStrategy = {
+        componentSelection { rules ->
+            rules.all { ComponentSelection selection ->
+                boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm'].any { qualifier ->
+                    selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+                }
+                if (rejected) {
+                    selection.reject('Release candidate')
+                }
+            }
+        }
+    }
 
 }
