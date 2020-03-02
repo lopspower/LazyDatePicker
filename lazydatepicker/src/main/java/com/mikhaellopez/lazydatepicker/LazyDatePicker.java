@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Copyright (C) 2019 Mikhael LOPEZ
+ * Copyright (C) 2020 Mikhael LOPEZ
  * Licensed under the Apache License Version 2.0
  */
 public class LazyDatePicker extends RelativeLayout {
@@ -119,15 +119,17 @@ public class LazyDatePicker extends RelativeLayout {
                         }
                     }
                 });
+            }
 
-                editLazyDatePickerReal.setOnFocusChangeListener(new OnFocusChangeListener() {
-                    @Override
-                    public void onFocusChange(View v, boolean hasFocus) {
-                        showDate(date, hasFocus);
+            editLazyDatePickerReal.setOnFocusChangeListener(new OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    showDate(date, hasFocus);
+                    if (showFullDate) {
                         showFullDateLayout(hasFocus);
                     }
-                });
-            }
+                }
+            });
 
             initTextWatcher();
         }
@@ -491,8 +493,9 @@ public class LazyDatePicker extends RelativeLayout {
         viewLazyDate7.setBackgroundColor(Color.TRANSPARENT);
         viewLazyDate8.setBackgroundColor(Color.TRANSPARENT);
 
-        if (showFullDate)
+        if (showFullDate) {
             showFullDateLayout(editLazyDatePickerReal.isFocused());
+        }
     }
     //endregion
 

@@ -7,7 +7,7 @@ import org.threeten.bp.LocalDate;
 import org.threeten.bp.format.DateTimeFormatter;
 
 /**
- * Copyright (C) 2019 Mikhael LOPEZ
+ * Copyright (C) 2020 Mikhael LOPEZ
  * Licensed under the Apache License Version 2.0
  */
 public class LazyLocalDatePicker extends LazyDatePicker {
