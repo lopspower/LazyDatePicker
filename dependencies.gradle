@@ -1,37 +1,43 @@
 allprojects {
     repositories {
         google()
-        jcenter()
         mavenCentral()
+        jcenter()
     }
 }
 
 ext {
     // APP VERSION
-    androidVersionCode          = 7
-    androidVersionName          = "1.0.6"
+    androidVersionCode          = 8
+    androidVersionName          = "1.1.0"
+    libraryGroupId              = 'com.mikhaellopez'
+    libraryArtifactId           = 'circularimageview'
+    libraryVersion              = androidVersionName
 
     // ANDROID VERSION
-    androidCompileSdkVersion    = 29
-    androidMinSdkVersion        = 16
-    androidTargetSdkVersion     = 29
+    androidCompileSdkVersion    = 30
+    androidMinSdkVersion        = 15
+    androidTargetSdkVersion     = 30
 
     // ANDROID LIB
-    androidAppCompatXVersion    = '1.1.0'
-    androidXAppCompat           = "androidx.appcompat:appcompat:$androidAppCompatXVersion"
+    androidXAppCompat           = "androidx.appcompat:appcompat:1.3.0"
 
     // HELPER
-    threetenabp                 = 'com.jakewharton.threetenabp:threetenabp:1.2.2'
+    threetenabp                 = 'com.jakewharton.threetenabp:threetenabp:1.3.1'
 
     // DEPENDENCY CHECK STRATEGY
     dependencyUpdatesStrategy = {
-        componentSelection { rules ->
-            rules.all { ComponentSelection selection ->
-                boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm'].any { qualifier ->
-                    selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
-                }
-                if (rejected) {
-                    selection.reject('Release candidate')
+        def isNonStable = { String version ->
+            def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { keyword ->
+                version.toUpperCase().contains(keyword)
+            }
+            def regex = /^[0-9,.v-]+(-r)?$/
+            return !stableKeyword && !(version ==~ regex)
+        }
+        componentSelection {
+            all {
+                if (isNonStable(it.candidate.version) && !isNonStable(it.currentVersion)) {
+                    reject('Release candidate')
                 }
             }
         }

@@ -3,12 +3,18 @@ apply from: 'dependencies.gradle'
 
 buildscript {
     repositories {
-        jcenter()
         google()
+        mavenCentral()
+        jcenter()
+        gradlePluginPortal()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.0'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.1'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.25.0'
+        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.38.0'
     }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }

@@ -27,5 +27,5 @@ dependencies {
     implementation threetenabp
 
     // DEPENDENCY CHECK STRATEGY
-    dependencyUpdates.resolutionStrategy = dependencyUpdatesStrategy
+    dependencyUpdates.resolutionStrategy dependencyUpdatesStrategy
 }
